@@ -20,7 +20,7 @@ class person:
     def setName(self, name):
         self.name = name
 
-class asis:
+class assistant:
     name = ''
     def setName(self, name):
         self.name = name
@@ -63,7 +63,7 @@ def engine_speak(audio_string):
     audio_file = 'audio' + str(r) + '.mp3'
     tts.save(audio_file) # save as mp3
     playsound.playsound(audio_file) # play the audio file
-    print(asis_obj.name + ":", audio_string) # print what app said
+    print(assistant_obj.name + ":", audio_string) # print what app said
     os.remove(audio_file) # remove audio file
 
 def respond(voice_data):
@@ -86,9 +86,9 @@ def respond(voice_data):
         person_obj.setName(person_name) # remember name in person object
     
     if there_exists(["your name should be"]):
-        asis_name = voice_data.split("be")[-1].strip()
-        engine_speak("okay, i will remember that my name is " + asis_name)
-        asis_obj.setName(asis_name) # remember name in asis object
+        assistant_name = voice_data.split("be")[-1].strip()
+        engine_speak("okay, i will remember that my name is " + assistant_name)
+        assistant_obj.setName(assistant_name) # remember name in assistant object
 
     # 3: greeting
     if there_exists(["how are you","how are you doing"]):
@@ -224,8 +224,8 @@ def respond(voice_data):
 time.sleep(1)
 
 person_obj = person()
-asis_obj = asis()
-asis_obj.name = 'kiki'
+assistant_obj = assistant()
+assistant_obj.name = 'kiki'
 engine = pyttsx3.init()
 
 
